@@ -22,7 +22,7 @@ const UserEnquiry = () => {
     });
   };
   const getAllEnquiry = () => {
-    axioslocalhost: (8000)
+    axios
       .get(`${API}/api/website/enquiry/view`)
       .then((res) => {
         return res.data;
