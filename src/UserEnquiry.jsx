@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import EnquiryList from "./enquiry/EnquiryList";
-
+const API = import.meta.env.VITE_API_URL;
 const UserEnquiry = () => {
   const [enquiryList, setEnquiryList] = useState();
   const [formData, setFormData] = useState({
@@ -15,17 +15,15 @@ const UserEnquiry = () => {
   const saveEnquiry = (e) => {
     e.preventDefault();
 
-    axios
-      .post(`http://localhost:8000/api/website/enquiry/insert`, formData)
-      .then((res) => {
-        console.log(res.data);
-        toast.success("enquiry is saved successfully");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      });
+    axios.post(`${API}/api/website/enquiry/insert`, formData).then((res) => {
+      console.log(res.data);
+      toast.success("enquiry is saved successfully");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    });
   };
   const getAllEnquiry = () => {
-    axios
-      .get(`http://localhost:8000/api/website/enquiry/view`)
+    axioslocalhost: (8000)
+      .get(`${API}/api/website/enquiry/view`)
       .then((res) => {
         return res.data;
       })

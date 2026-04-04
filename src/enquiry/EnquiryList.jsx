@@ -4,20 +4,16 @@ import { toast } from "react-toastify";
 
 const EnquiryList = ({ data, getAllEnquiry }) => {
   const deleteRow = (delid) => {
-    axios
-      .delete(`http://localhost:8000/api/website/enquiry/delete/${delid}`)
-      .then(() => {
-        toast.success("enquiry deleted successfully");
-      });
+    axios.delete(`${API}/api/website/enquiry/delete/${delid}`).then(() => {
+      toast.success("enquiry deleted successfully");
+    });
     getAllEnquiry();
   };
   let editRow = (editId) => {
-    axios
-      .get(`http://localhost:8000/api/website/enquiry/single/${editId}`)
-      .then((res) => {
-        let data = res.data;
-        console.log(data.enquiry);
-      });
+    axios.get(`${API}/api/website/enquiry/single/${editId}`).then((res) => {
+      let data = res.data;
+      console.log(data.enquiry);
+    });
   };
   return (
     <div className="bg-white shadow-lg rounded-xl p-6">
