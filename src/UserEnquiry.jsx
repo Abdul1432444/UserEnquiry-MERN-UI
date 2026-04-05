@@ -15,7 +15,7 @@ const UserEnquiry = () => {
   const saveEnquiry = (e) => {
     e.preventDefault();
 
-    axios.post(`${API}/api/website/enquiry/insert`, formData).then((res) => {
+    axios.post(`${API}api/website/enquiry/insert`, formData).then((res) => {
       console.log(res.data);
       toast.success("enquiry is saved successfully");
       setFormData({ name: "", email: "", phone: "", message: "" });
@@ -23,7 +23,7 @@ const UserEnquiry = () => {
   };
   const getAllEnquiry = () => {
     axios
-      .get(`${API}/api/website/enquiry/view`)
+      .get(`${API}api/website/enquiry/view`)
       .then((res) => {
         return res.data;
       })

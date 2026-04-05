@@ -4,13 +4,13 @@ import { toast } from "react-toastify";
 
 const EnquiryList = ({ data, getAllEnquiry }) => {
   const deleteRow = (delid) => {
-    axios.delete(`${API}/api/website/enquiry/delete/${delid}`).then(() => {
+    axios.delete(`${API}api/website/enquiry/delete/${delid}`).then(() => {
       toast.success("enquiry deleted successfully");
     });
     getAllEnquiry();
   };
   let editRow = (editId) => {
-    axios.get(`${API}/api/website/enquiry/single/${editId}`).then((res) => {
+    axios.get(`${API}api/website/enquiry/single/${editId}`).then((res) => {
       let data = res.data;
       console.log(data.enquiry);
     });
